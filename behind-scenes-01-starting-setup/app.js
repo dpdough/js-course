@@ -7,4 +7,5 @@ function greet() {
     console.log('Hello ' + userName);
 }
 
-greet();
+greet();  //runs in the stack memory, stack gets populated when new functions get called and function is removed from teh stack after execution
+
