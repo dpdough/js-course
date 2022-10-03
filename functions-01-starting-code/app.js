@@ -32,7 +32,12 @@ const getComputerChoice = function() {
     }
 };
 
-const getWinner = function(cChoice, pChoice,) {
+// const add = (a,b) => a + b; shorter method to write a function 
+// const add2 = function(a, b) { 
+//     return a + b;
+// };
+
+const getWinner = (cChoice, pChoice) => {    // the arrow function anotehr way to write an annonomus function
     if (cChoice === pChoice) {
         return RESULT_DRAW;
     } else if (
@@ -54,7 +59,17 @@ startGameBtn.addEventListener('click', function() {
     const playerSelection = getPlayerSelction();
     const computerChoice = getComputerChoice();
     const winner = getWinner(computerChoice, playerSelection);
-    console.log(winner);
+    let message = `You picked ${playerSelection}, computer picked ${computerChoice} therefore you `;
+    
+    if (winner === RESULT_DRAW) {
+        message = message + 'had a Draw!';
+    } else if (winner === RESOULT_PLAYER_WINS) {
+        message = message + 'Won!';
+    } else {
+        message = message + 'Lost!'
+    }
+    alert(message);
+    gameIsRunning = false;
 });
 
 
