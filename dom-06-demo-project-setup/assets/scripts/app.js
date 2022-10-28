@@ -34,16 +34,17 @@ const deleteMovie = (movieId) => {
     }
     movieIndex++;
   }
-
   movies.splice(movieIndex, 1);
   const listRoot = document.getElementById('movie-list');
   listRoot.children[movieIndex].remove();
-  closeMovieModal();
+  cancleMovieDelition();
+  updateUI();
 };
 
 const deleteMovieHandler = (movieId) => {
   deleteMovieModal.classList.add('visible');
   toggleBackDrop();
+
   const cancleDelitionButton = deleteMovieModal.querySelector('.btn--passive');
   let confirmDeletionButton = deleteMovieModal.querySelector('.btn--danger');
 
@@ -85,6 +86,7 @@ const showMovieModal = () => {
   addMovieModal.classList.toggle('visible');
   toggleBackDrop();
 };
+
 const clearMovieInput = () => {
   for (const usrInput of userInputs) {
     usrInput.value = '';
